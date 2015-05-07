@@ -43,11 +43,15 @@
 
 - (void)startTimerWithSecondsNum:(NSInteger)seconds {
     timeCount = seconds;
-    cellTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES];
+    if (timeCount <= 0) {
+        showCountdownTimeLab.text = @"0 s";
+    } else {
+        cellTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)countDownAction:(NSTimer*)timer {
-    if (timeCount < 0) {
+    if (timeCount <= 0) {
         [cellTimer invalidate];
     }
     showCountdownTimeLab.text = [NSString stringWithFormat:@"%ld s", timeCount--];

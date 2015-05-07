@@ -67,7 +67,7 @@
 #pragma mark - data source
 
 - (void)setDataArray {
-    dataArray = @[@"100", @"200", @"300", @"400", @"500", @"600", @"700", @"800", @"900", @"1000"];
+    dataArray = @[@"10", @"20", @"30", @"400", @"500", @"600", @"700", @"800", @"900", @"1000"];
     
     timeCount = 0;
     mTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES];
@@ -99,6 +99,9 @@
     
     [cell endTimerCount];
     [cell startTimerWithSecondsNum:[[dataArray objectAtIndex:indexPath.row] integerValue]-timeCount];
+    if ([[dataArray objectAtIndex:indexPath.row] integerValue] <= 0) {
+        [cell endTimerCount];
+    }
     
     return cell;
 }
