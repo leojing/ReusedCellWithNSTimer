@@ -71,6 +71,7 @@
     
     timeCount = 0;
     mTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:mTimer forMode:NSRunLoopCommonModes];
     
     [mTableView reloadData];
 }
