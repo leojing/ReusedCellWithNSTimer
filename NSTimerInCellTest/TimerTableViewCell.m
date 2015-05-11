@@ -46,6 +46,7 @@
     if (timeCount <= 0) {
         showCountdownTimeLab.text = @"0 s";
     } else {
+        [self countDownAction:nil];
         cellTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES];
     }
 }
