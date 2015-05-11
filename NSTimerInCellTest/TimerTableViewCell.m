@@ -48,6 +48,7 @@
     } else {
         [self countDownAction:nil];
         cellTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction:) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:cellTimer forMode:NSRunLoopCommonModes];
     }
 }
 
